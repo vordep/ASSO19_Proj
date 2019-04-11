@@ -1,6 +1,6 @@
 # ASSO19_Proj
 
-# Paper - Benchmarking Web Communication Protocols with IoT
+# Paper - Benchmarking Web Communication Protocols in IoT
 
 ## Project Objective
 
