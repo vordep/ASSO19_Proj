@@ -2,6 +2,7 @@ import SOAPpy
 import utils
 toSend = utils.readFile()
 
+
 def mytxt():
     return toSend
 

@@ -6,5 +6,5 @@ toSend = utils.readFile()
 
 
 @app.route('/mytxt')
-def hello_world():
+def mytxt():
     return toSend
