@@ -1,2 +1,2 @@
-export FLASK_APP=RestServer.py
+export FLASK_APP=RESTServer.py
 flask run

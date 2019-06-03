@@ -1,5 +1,6 @@
-pip3 install --upgrade pip
-pip3 install pika
-pip3 install flask
-pip3 install requests
-pip3 install paho-mqtt
+pip install --upgrade pip
+pip install pika
+pip install flask
+pip install requests
+pip install paho-mqtt
+pip install SOAPpy
