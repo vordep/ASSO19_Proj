@@ -1,6 +1,7 @@
-pip install --upgrade pip
-pip install pika
-pip install flask
-pip install requests
-pip install paho-mqtt
-pip install SOAPpy
+apt-get -y install python-pip
+sudo pip install --upgrade pip
+sudo pip install pika
+sudo pip install flask
+sudo pip install requests
+sudo pip install paho-mqtt
+sudo pip install SOAPpy
