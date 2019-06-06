@@ -6,5 +6,5 @@ def sendRequest(method, route):
     return response.text
 
 
-print(sendRequest("GET", "http://127.0.0.1:5000/mytxt"))
+print(sendRequest("GET", "http://192.168.56.105:5000/mytxt"))
 # TODO LOGIC
