@@ -4,7 +4,7 @@ import utils
 toSend = utils.readFile()
 
 
-broker_url = "localhost"
+broker_url = "10.0.2.2"
 broker_port = 1883
 
 client = mqtt.Client()

@@ -1,7 +1,7 @@
 import pika
 
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+    pika.ConnectionParameters(host='10.0.2.2'))
 channel = connection.channel()
 
 channel.queue_declare(queue='mytxt')

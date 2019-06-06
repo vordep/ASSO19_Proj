@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-BOX_BASE = "ubuntu/trusty64"
+BOX_BASE = "ubuntu/xenial64"
 BOX_CPU_COUNT = "1" 
 BOX_EXEC_CAP = "90"
 BOX_RAM_MB = "1024"
@@ -26,11 +26,12 @@ Vagrant.configure("2") do |config|
     end
 
     #Synced folder
-    server.vm.synced_folder "./Server", "/home/vagrant"
+    server.vm.synced_folder "./Server", "/vagrant"
 
     server.vm.provision "shell", path: "setup.sh"
 
     server.vm.network :private_network, ip: "192.168.56.105"
+
   end 
   
   #Client
@@ -44,12 +45,12 @@ Vagrant.configure("2") do |config|
       vb.memory = BOX_RAM_MB
       vb.cpus = BOX_CPU_COUNT
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", BOX_EXEC_CAP]
+      vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
     end
 
-    client.vm.synced_folder "./Client", "/home/vagrant"
+    client.vm.synced_folder "./Client", "/vagrant"
     client.vm.network :private_network, ip: "192.168.56.104"
     client.vm.provision "shell", path: "setup.sh"
-  end 
-  
 
+  end 
 end
