@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 toSend = utils.readFile(sys.argv[2])
 counter=0
-utils.startServerTestSetup(sys.argv[1],int(sys.argv[2]))
+utils.startServerTestSetup("RestServer",sys.argv[1],int(sys.argv[2]))
 
 @app.route('/mytxt')
 def mytxt():
