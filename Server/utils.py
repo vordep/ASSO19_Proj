@@ -57,12 +57,6 @@ def endTestSetup(filename):
                          str(timeElapsed)]))
     sys.exit(0)
 
-def endServerTestSetup():
-    signal.signal(signal.SIGALRM, custom_exit)
-    signal.setitimer(signal.ITIMER_REAL, 2)
-
-def custom_exit(signum,frame):
-    sys.exit(0)
     
 def scheduleCPU_RAM_ETC():
     signal.signal(signal.SIGALRM, saveCPU_RAM_ETC)

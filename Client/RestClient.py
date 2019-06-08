@@ -18,8 +18,7 @@ utils.startTestSetup("RestClient",sys.argv[1], int(sys.argv[2]))
 for x in range(0, int(sys.argv[2])):
     response = ""
     while response == "":
-        response = sendRequest("GET", "http://192.168.56.105:5000/mytxt")
-    
+        response = sendRequest("GET", "http://192.168.56.105:5000/mytxt")   
     utils.savetofile(response)
 
 utils.endTestSetup("RestClient")
