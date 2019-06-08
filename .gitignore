@@ -4,3 +4,13 @@
 Client/__pycache__/
 
 Server/__pycache__/
+
+\.vagrant/machines/client/virtualbox/
+
+\.vagrant/machines/server/virtualbox/
+
+\.vagrant/rgloader/
+
+*.pyc
+
+ubuntu-xenial-16\.04-cloudimg-console\.log

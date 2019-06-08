@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 BOX_BASE = "ubuntu/xenial64"
 BOX_CPU_COUNT = "1" 
-BOX_EXEC_CAP = "90"
+BOX_EXEC_CAP = "50"
 BOX_RAM_MB = "1024"
 
 SOAP_PORT = "5000"

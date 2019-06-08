@@ -2,6 +2,8 @@ import time
 import os
 import sys
 import signal
+import re
+
 
 fileToWrite = None
 CPURAMFile = None
@@ -11,15 +13,15 @@ timeElapsed = 0
 pid = None
 
 
-def readFile():
-    file = open("toSend.txt", "r")
+def readFile(message_size):
+    file = open(".".join([message_size,'txt']), "r")
     return file.read()
 
 
 def savetofile(message):
     fileToWrite.write(message)
 
-def startServerTestSetup(message_size, number_of_messages):
+def startServerTestSetup(type, message_size, number_of_messages):
     global messageSize
     global numberOfMessages
     global pid
@@ -27,10 +29,10 @@ def startServerTestSetup(message_size, number_of_messages):
     pid = os.getpid()
     messageSize = message_size
     numberOfMessages = number_of_messages
-    CPURAMFile = open("-".join([str(messageSize),str(number_of_messages),".csv"]),"w+")
+    CPURAMFile = open("".join([type,"-",str(messageSize),"-",str(number_of_messages),".csv"]),"w+")
     scheduleCPU_RAM_ETC()
 
-def startTestSetup(message_size, number_of_messages):
+def startTestSetup(type, message_size, number_of_messages):
     global fileToWrite
     global messageSize
     global numberOfMessages
@@ -42,7 +44,7 @@ def startTestSetup(message_size, number_of_messages):
     pid = os.getpid()
 
     fileToWrite = open("received.txt", "w+")
-    CPURAMFile = open("-".join([str(messageSize),str(number_of_messages),".csv"]),"w+")
+    CPURAMFile = open("".join([type,"-",str(messageSize),"-",str(number_of_messages),".csv"]),"w+")
     timeElapsed -= time.time()
     scheduleCPU_RAM_ETC()
 
@@ -50,9 +52,9 @@ def startTestSetup(message_size, number_of_messages):
 def endTestSetup(filename):
     global timeElapsed
     timeElapsed += time.time()
-    file = open(filename, "w+")
+    file = open(filename, "a+")
     file.write(",".join([str(messageSize), str(numberOfMessages),
-                         str(timeElapsed)]))
+                         str(timeElapsed),"\n"]))
     sys.exit(0)
 
 
@@ -63,5 +65,6 @@ def scheduleCPU_RAM_ETC():
 
 def saveCPU_RAM_ETC(signum, frame):
     myCmd = os.popen(" ".join(["ps -p", str(pid), "-o %cpu,%mem"])).read()
-    CPURAMFile.write(myCmd)
+    myCmd = ",".join(re.split('  | \n|\n | |\n',myCmd))
+    CPURAMFile.write(",".join([myCmd,"\n"]))
     scheduleCPU_RAM_ETC()
