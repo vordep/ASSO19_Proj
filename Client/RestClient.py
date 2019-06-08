@@ -1,4 +1,6 @@
 import requests
+import utils
+import sys
 
 
 def sendRequest(method, route):
@@ -6,5 +8,10 @@ def sendRequest(method, route):
     return response.text
 
 
-print(sendRequest("GET", "http://192.168.56.105:5000/mytxt"))
+utils.startTestSetup(sys.argv[1], sys.argv[2])
+
+for x in range(0, sys.argv[2]):
+    utils.savetofile(sendRequest("GET", "http://192.168.56.105:5000/mytxt"))
+
+utils.endTestSetup("RestClient")
 # TODO LOGIC
