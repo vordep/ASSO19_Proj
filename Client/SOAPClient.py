@@ -18,5 +18,7 @@ for x in range(0, int(sys.argv[2])):
     utils.savetofile(response)
 
 utils.endTestSetup("SoapClient")
+server.mytxt()
+sys.exit(0)
 # TODO LOGIC
 

@@ -55,7 +55,6 @@ def endTestSetup(filename):
     file = open(filename, "a+")
     file.write(",".join([str(messageSize), str(numberOfMessages),
                          str(timeElapsed),"\n"]))
-    sys.exit(0)
 
 
 def scheduleCPU_RAM_ETC():

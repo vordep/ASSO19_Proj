@@ -68,3 +68,6 @@ def saveCPU_RAM_ETC(signum, frame):
     myCmd = ",".join(re.split('  | \n|\n | |\n',myCmd))
     CPURAMFile.write(",".join([myCmd,"\n"]))
     scheduleCPU_RAM_ETC()
+
+def kill_server():
+    os.kill(pid, signal.SIGINT)

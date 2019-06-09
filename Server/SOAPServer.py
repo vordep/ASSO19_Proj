@@ -6,11 +6,12 @@ toSend = utils.readFile(sys.argv[1])
 counter=0
 utils.startServerTestSetup("SoapServer",sys.argv[1],int(sys.argv[2]))
 
+
 def mytxt():
     global counter
     counter+=1
-    if counter>int(sys.argv[2]):
-        sys.exit(0)
+    if counter==int(sys.argv[2]):
+        print('killit')
         return ""
     return toSend
 
