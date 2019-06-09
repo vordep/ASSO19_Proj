@@ -13,18 +13,17 @@ def publish_handler(client,userdata,result):
     global counter2
     counter2+=1
     if counter2 >= int(sys.argv[2]):
+        client.disconnect()
         sys.exit(0)
 
-client = mqtt.Client()
-
+client = mqtt.Client(client_id="".join(["MQTTPub",sys.argv[1],sys.argv[2]]),clean_session=False)
+client.on_publish = publish_handler
 client.connect(broker_url, broker_port)
 
 while counter < int(sys.argv[2]):
     try:
-        client.publish(topic=" ".join(["MQTT",sys.argv[1],sys.argv[2]]), payload=toSend, qos=0, retain=False) 
+        client.publish(topic="".join(["MQTT",sys.argv[1],sys.argv[2]]), payload=toSend, qos=2, retain=False) 
         counter+=1
     except:
         pass
-
-client.on_publish = publish_handler
 client.loop_forever()
