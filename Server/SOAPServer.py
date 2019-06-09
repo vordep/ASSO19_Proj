@@ -14,7 +14,6 @@ def mytxt():
         sys.exit(0)
     return toSend
 
-
 server = SOAPpy.SOAPServer(("0.0.0.0", 5001))
 server.registerFunction(mytxt)
 server.serve_forever()
