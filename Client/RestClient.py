@@ -22,4 +22,9 @@ for x in range(0, int(sys.argv[2])):
     utils.savetofile(response)
 
 utils.endTestSetup("RestClient")
+
+try:
+    requests.request("GET", "http://192.168.56.105:5000/mytxt")
+except:
+    pass
 # TODO LOGIC

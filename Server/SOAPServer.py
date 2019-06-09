@@ -11,8 +11,7 @@ def mytxt():
     global counter
     counter+=1
     if counter==int(sys.argv[2]):
-        print('killit')
-        return ""
+        sys.exit(0)
     return toSend
 
 
